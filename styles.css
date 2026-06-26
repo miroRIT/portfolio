@@ -275,6 +275,13 @@ ul {
   transform: translateY(-2px);
 }
 
+.button.disabled,
+button[aria-disabled="true"] {
+  opacity: 0.62;
+  cursor: not-allowed;
+  transform: none;
+}
+
 .primary {
   color: #ffffff;
   background: linear-gradient(135deg, #38bdf8 0%, #2563eb 100%);
@@ -321,10 +328,20 @@ ul {
 
 .hero-banner {
   width: 100%;
-  display: block;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  min-height: 280px;
+  min-height: 320px;
+  border-radius: 1.75rem;
+  background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.26), transparent 28%),
+    linear-gradient(135deg, rgba(29, 78, 216, 0.75), rgba(15, 23, 42, 0.95));
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(168, 85, 247, 0.22), transparent 30%),
+    radial-gradient(circle at bottom left, rgba(59, 130, 246, 0.18), transparent 34%);
 }
 
 .hero-panel-body {
@@ -565,6 +582,68 @@ ul {
   background: rgba(56, 189, 248, 0.12);
   color: #ffffff;
   transform: translateY(-1px);
+}
+
+.contact-details {
+  padding: 1.75rem;
+}
+
+.contact-items {
+  display: grid;
+  gap: 1rem;
+}
+
+.contact-item {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem 1.15rem;
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  transition: transform var(--transition), background var(--transition), border-color var(--transition);
+}
+
+.contact-item:hover,
+.contact-item:focus-visible {
+  transform: translateY(-1px);
+  background: rgba(56, 189, 248, 0.12);
+  border-color: rgba(56, 189, 248, 0.2);
+}
+
+.contact-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 1rem;
+  background: rgba(56, 189, 248, 0.14);
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.contact-item div p {
+  margin: 0;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.contact-item div span {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.project-link.disabled {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.82rem 1rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  color: rgba(136, 165, 191, 0.88);
+  cursor: default;
+  pointer-events: none;
 }
 
 .mlops-grid {
